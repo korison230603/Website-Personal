@@ -255,13 +255,10 @@
 
 <!-- Certification (Pelatihan Deep Learning - 7 Sertifikat dalam 1 kartu) -->
 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-  <h3>Pelatihan Deep Learning</h3>
-  <p>Issued by DQLab</p>
-    
-      <!-- Slide 1 -->
-       <div class="carousel">
+  <h3>Deep Learning Training Certificates</h3>
+  <div class="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item">
         <a href="https://academy.dqlab.id/Certificate_check/result/DQLABDLTRCWRFIRU#mycertificate" target="_blank">
           <img src="Image/dl.jpg" alt="Deep Learning Module 1">
         </a>
@@ -302,11 +299,10 @@
           <img src="Image/dl7.jpg" alt="Deep Learning Module 2">
         </a>
       </div>
-    </div>
            
-    <!-- Tombol navigasi -->
-  <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+   </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
 </div>
 
@@ -388,10 +384,45 @@
   }, 5000);
 </script>
 
+<script>
+const carousels = document.querySelectorAll('.carousel');
 
+carousels.forEach(carousel => {
+  const inner = carousel.querySelector('.carousel-inner');
+  const items = carousel.querySelectorAll('.carousel-item');
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
+  let index = 0;
+
+  function showSlide(i) {
+    if (i >= items.length) index = 0;
+    if (i < 0) index = items.length - 1;
+    inner.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index++;
+    showSlide(index);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index--;
+    showSlide(index);
+  });
+
+  // Auto slide setiap 4 detik
+  setInterval(() => {
+    index++;
+    showSlide(index);
+  }, 4000);
+});
+</script>
+
+    
 </body>
 
 </html>
+
 
 
 
