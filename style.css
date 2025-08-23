@@ -68,7 +68,7 @@ section{
     height: 100vh;
     display: flex;
     align-items: center;
-    background-image: url(Image/bg.png);
+    background-image: url(Image/lb.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -686,4 +686,5 @@ header .navigation.active a {
     .about .content .col-right {
         margin-top: 40px;
     }
+
 }
