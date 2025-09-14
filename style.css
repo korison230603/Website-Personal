@@ -436,7 +436,7 @@ section{
 /* Kartu sertifikat */
 .certificate-card {
   text-align: center;
-  background-color: #082B50;
+  background-color: #0D3C66;
   padding: 24px;
   border-radius: 16px;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -744,6 +744,7 @@ header .navigation.active a {
     }
 
 }
+
 
 
 
