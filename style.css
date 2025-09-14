@@ -423,6 +423,15 @@ section{
     color: white;
 }
 
+.certificationss-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 5%;
+}
+
+
 .certifications .project-card {
     background-color: #082B50;
     color: white;
@@ -729,5 +738,6 @@ header .navigation.active a {
     }
 
 }
+
 
 
