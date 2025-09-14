@@ -412,6 +412,30 @@ section{
 
 /*Certification Section*/
 
+.certificate-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* dua kolom */
+  gap: 20px; /* jarak antar sertifikat */
+  margin: 20px 0;
+}
+
+.project-card {
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 400px; /* biar tidak terlalu besar */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-card img:hover {
+  transform: scale(1.05);
+}
+
+
 .certifications {
     background-color: #082B59 !important; /* Pakai !important untuk menghindari override */
     padding-top: 40px;
@@ -422,15 +446,6 @@ section{
 .certifications .section-title {
     color: white;
 }
-
-.certificationss-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
-  padding: 0 5%;
-}
-
 
 .certifications .project-card {
     background-color: #082B50;
@@ -738,4 +753,5 @@ header .navigation.active a {
     }
 
 }
+
 
