@@ -413,17 +413,19 @@ section{
 /*Certification Section*/
 
 .certifications {
-    background-color: #082B59 !important; /* Pakai !important untuk menghindari override */
-    padding-top: 40px;
-    padding-bottom: 40px;
-    color: white;
+  background-color: #fff;
+  color: #000;
+  padding: 100px 0;
 }
 
 .certifications .section-title {
-    color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
 
-.certificationss-grid {
+.certifications-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -431,19 +433,65 @@ section{
   padding: 0 5%;
 }
 
-
-.certifications .project-card {
-    background-color: #082B50;
-    color: white;
+.certifications-card {
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
+  padding: 16px;
+  transition: transform 0.3s ease;
 }
 
-.certifications .project-card h3 {
-    color: white;
+.certifications-card:hover {
+  transform: translateY(-4px);
 }
 
-.certifications .project-card p {
-    color: #1a73e8;
+.certifications-card img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
 }
+
+.certifications-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
+.certifications-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.certifications-links a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.certifications-links a:hover {
+  text-decoration: underline;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: #1a73e8;
+  padding: 10px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
 
 /* ===== Carousel Sertifikat (7 training) ===== */
 .carousel {
@@ -738,6 +786,7 @@ header .navigation.active a {
     }
 
 }
+
 
 
 
