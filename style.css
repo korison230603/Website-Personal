@@ -788,11 +788,13 @@ header.sticky {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 28px;
@@ -865,6 +867,40 @@ header.sticky {
   background: linear-gradient(135deg, #19344b 0%, #3c6992 55%, #9fc9d9 100%);
 }
 
+.project-media {
+  position: relative;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 24px;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, #dfe8f6 0%, #f5f9ff 100%);
+}
+
+.project-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 31, 56, 0.06) 0%,
+    rgba(12, 31, 56, 0.3) 100%
+  );
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-media .project-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+}
+
 .project-card h3 {
   margin-bottom: 12px;
   color: var(--heading);
@@ -897,6 +933,56 @@ header.sticky {
   font-weight: 700;
 }
 
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(30, 94, 168, 0.16);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(30, 94, 168, 0.28);
+  background: var(--accent-dark);
+  color: var(--white);
+}
+
+.card-link-ghost {
+  background: transparent;
+  color: var(--heading);
+  border-color: var(--line);
+}
+
+.card-link-ghost:hover,
+.card-link-ghost:focus-visible {
+  border-color: rgba(12, 31, 56, 0.18);
+  background: rgba(12, 31, 56, 0.08);
+  color: var(--heading);
+}
+
 .section-action {
   display: flex;
   justify-content: center;
@@ -913,6 +999,7 @@ header.sticky {
   margin-bottom: 18px;
   border-radius: 22px;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .certification-card .card-meta {
@@ -921,6 +1008,11 @@ header.sticky {
 
 .certification-card p {
   margin-top: 12px;
+}
+
+.project-card:hover .project-media img,
+.certification-card:hover img {
+  transform: scale(1.03);
 }
 
 .contact {
@@ -1054,8 +1146,7 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .experience-grid,
-  .projects-grid {
+  .experience-grid {
     grid-template-columns: 1fr;
   }
 
