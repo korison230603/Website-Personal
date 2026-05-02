@@ -1244,6 +1244,10 @@ footer {
   }
 }
 
+/* ===============================
+   RESPONSIVE FIX (FINAL)
+=============================== */
+
 @media (max-width: 1120px) {
   .experience-grid {
     grid-template-columns: repeat(2, 1fr);
