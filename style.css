@@ -1250,35 +1250,6 @@ footer {
   }
 }
 
-@media (max-width: 700px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-
-  .hero-highlights {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .doc-card {
-    grid-column: span 6;
-  }
-
-  .doc-card.landscape,
-  .doc-card.wide {
-    grid-column: span 12;
-  }
-}
-
 @media (max-width: 860px) {
   header {
     padding: 16px 20px;
@@ -1316,10 +1287,7 @@ footer {
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-10px);
-    transition:
-      opacity 0.2s ease,
-      transform 0.2s ease,
-      visibility 0.2s ease;
+    transition: 0.2s ease;
   }
 
   .navigation.active {
@@ -1332,10 +1300,6 @@ footer {
   .navigation a {
     width: 100%;
     padding: 14px 0;
-  }
-
-  .navigation a::after {
-    bottom: 6px;
   }
 
   .main {
@@ -1353,11 +1317,6 @@ footer {
     max-width: 620px;
   }
 
-  .about-badge {
-    right: 16px;
-    bottom: 16px;
-  }
-
   .modal-content {
     padding: 28px 20px;
   }
@@ -1371,14 +1330,29 @@ footer {
   .doc-card.wide {
     grid-column: span 1;
   }
+}
 
-  .doc-card.portrait img {
-    height: 300px;
+@media (max-width: 700px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
   }
 
-  .doc-card.landscape img,
-  .doc-card.wide img {
-    height: 220px;
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .hero-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .doc-card {
+    grid-column: span 6;
+  }
+
+  .doc-card.landscape,
+  .doc-card.wide {
+    grid-column: span 12;
   }
 }
 
@@ -1416,24 +1390,9 @@ footer {
     padding: 6px;
   }
 
-  .project-media .project-badge {
-    top: 10px;
-    left: 10px;
-    max-width: calc(100% - 20px);
-    font-size: 0.68rem;
-  }
-
-  .project-tags {
-    margin-top: 14px;
-  }
-
   .card-actions {
     grid-template-columns: 1fr;
     padding-top: 18px;
-  }
-
-  .main .content {
-    padding: 24px;
   }
 
   .hero-actions,
@@ -1451,21 +1410,6 @@ footer {
 
   .experience-date {
     text-align: left;
-  }
-
-  .about-badge {
-    position: static;
-    width: 100%;
-    margin-top: 18px;
-  }
-
-  .doc-card.portrait img {
-    height: 260px;
-  }
-
-  .doc-card.landscape img,
-  .doc-card.wide img {
-    height: 200px;
   }
 
   footer {
