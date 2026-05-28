@@ -1265,6 +1265,31 @@ header.sticky {
   transition: transform 0.3s ease;
 }
 
+.dqlab-carousel {
+  width: 100%;
+  height: 280px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #f7faff 0%, #eef4fb 100%);
+}
+
+.dqlab-track {
+  display: flex;
+  width: 700%;
+  height: 100%;
+  transition: transform 0.45s ease;
+}
+
+.dqlab-track img {
+  flex: 0 0 calc(100% / 7);
+  width: calc(100% / 7);
+  height: 100%;
+  margin-bottom: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
 .certification-card .card-meta {
   margin-bottom: 16px;
 }
@@ -1320,6 +1345,10 @@ header.sticky {
 .certification-card:hover img,
 .design-card:hover .design-media img {
   transform: scale(1.03);
+}
+
+.certification-card:hover .dqlab-track img {
+  transform: none;
 }
 
 .contact {
