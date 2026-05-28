@@ -126,7 +126,6 @@
               data-type="frame"
               data-src="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/preview"
               data-file="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/view?usp=sharing"
-              data-protected="true"
             >
               Digital Resume
             </button>
@@ -797,10 +796,11 @@
           </div>
           <div class="card-actions">
             <a
-              class="card-link"
+              class="card-link protected-link"
               href="https://dashboard-ecommerce-sulteng-production.up.railway.app/"
               target="_blank"
               rel="noreferrer"
+              data-access-title="Dashboard Analisis Pelaku Usaha Digital Sulawesi Tengah"
               >View Dashboard</a
             >
             <a
@@ -1251,7 +1251,6 @@
               data-type="frame"
               data-src="https://drive.google.com/file/d/1QBr1qJOL2pzHiXLsr-1LhiiEllOQr22W/preview"
               data-file="https://drive.google.com/file/d/1QBr1qJOL2pzHiXLsr-1LhiiEllOQr22W/view?usp=sharing"
-              data-protected="true"
             >
               View Certificate
             </button>
@@ -1503,7 +1502,7 @@
           <p class="modal-kicker">Restricted Access</p>
           <h3 id="access-title">Access Code Required</h3>
           <p class="modal-description">
-            This file is part of a controlled portfolio archive. Enter the
+            This dashboard includes controlled access materials. Enter the
             access code provided by Korison to continue.
           </p>
         </div>
@@ -1607,11 +1606,13 @@
       const documentOriginal = document.getElementById(
         "document-open-original",
       );
+      const protectedLinks = document.querySelectorAll(".protected-link");
       const accessForm = document.getElementById("access-form");
       const accessCodeInput = document.getElementById("access-code");
       const accessFeedback = document.getElementById("access-feedback");
       const portfolioAccessCode = "KORISON2026";
       let pendingDocumentTrigger = null;
+      let pendingProtectedLink = null;
 
       menuBtn.addEventListener("click", () => {
         const isActive = menuBtn.classList.toggle("active");
@@ -1695,15 +1696,31 @@
 
       function openAccessModal(trigger) {
         pendingDocumentTrigger = trigger;
+        pendingProtectedLink = null;
         accessForm.reset();
         accessFeedback.textContent = "";
         accessFeedback.classList.remove("is-error", "is-success");
+        document.getElementById("access-title").textContent =
+          trigger.dataset.title || "Access Code Required";
+        openModal("access-modal");
+        window.setTimeout(() => accessCodeInput.focus(), 120);
+      }
+
+      function openProtectedLinkAccess(link) {
+        pendingDocumentTrigger = null;
+        pendingProtectedLink = link;
+        accessForm.reset();
+        accessFeedback.textContent = "";
+        accessFeedback.classList.remove("is-error", "is-success");
+        document.getElementById("access-title").textContent =
+          link.dataset.accessTitle || "Dashboard Access Required";
         openModal("access-modal");
         window.setTimeout(() => accessCodeInput.focus(), 120);
       }
 
       function closeAccessModal() {
         pendingDocumentTrigger = null;
+        pendingProtectedLink = null;
         closeModal("access-modal");
       }
 
@@ -1715,6 +1732,13 @@
           }
 
           openDocumentViewer(trigger);
+        });
+      });
+
+      protectedLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          openProtectedLinkAccess(link);
         });
       });
 
@@ -1738,6 +1762,15 @@
 
         if (trigger) {
           openDocumentViewer(trigger);
+        }
+
+        if (pendingProtectedLink) {
+          window.open(
+            pendingProtectedLink.href,
+            pendingProtectedLink.target || "_blank",
+            "noopener,noreferrer",
+          );
+          pendingProtectedLink = null;
         }
       });
 
