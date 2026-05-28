@@ -817,6 +817,75 @@ header.sticky {
     var(--white);
 }
 
+.access-modal-content {
+  width: min(560px, 100%);
+}
+
+.access-form {
+  display: grid;
+  gap: 12px;
+}
+
+.access-form label {
+  color: var(--heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.access-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.access-input-row input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid rgba(12, 31, 56, 0.14);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--heading);
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.access-input-row input:focus {
+  border-color: rgba(35, 118, 216, 0.5);
+  box-shadow: 0 0 0 4px rgba(35, 118, 216, 0.12);
+}
+
+.access-feedback {
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.access-feedback.is-error {
+  color: #b3261e;
+}
+
+.access-feedback.is-success {
+  color: #1d7a42;
+}
+
+.access-request {
+  justify-self: start;
+  color: var(--accent-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.access-request:hover,
+.access-request:focus-visible {
+  text-decoration: underline;
+}
+
 .document-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1218,6 +1287,35 @@ header.sticky {
   object-fit: contain;
 }
 
+.design-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  padding: 28px;
+  border: 1px solid rgba(12, 31, 56, 0.08);
+  color: var(--accent-dark);
+  text-align: center;
+}
+
+.design-placeholder i {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: rgba(35, 118, 216, 0.1);
+  color: var(--accent-dark);
+  font-size: 1.5rem;
+}
+
+.design-placeholder span {
+  color: var(--heading);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
 .project-card:hover .project-media img,
 .certification-card:hover img,
 .design-card:hover .design-media img {
@@ -1486,6 +1584,10 @@ footer {
 
   .document-actions .card-link {
     flex: 1 1 180px;
+  }
+
+  .access-input-row {
+    grid-template-columns: 1fr;
   }
 
   .doc-gallery {

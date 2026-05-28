@@ -126,6 +126,7 @@
               data-type="frame"
               data-src="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/preview"
               data-file="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/view?usp=sharing"
+              data-protected="true"
             >
               Digital Resume
             </button>
@@ -1224,6 +1225,38 @@
             </button>
           </div>
         </article>
+
+        <article
+          class="project-card certification-card"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="700"
+        >
+          <img
+            src="Image/agen.jpg"
+            alt="Additional certificate preview"
+            loading="lazy"
+          />
+          <div class="card-meta">Verified Certificate Archive</div>
+          <h3>Additional Professional Certificate</h3>
+          <p>
+            External certificate file stored in Google Drive for verified
+            portfolio documentation.
+          </p>
+          <div class="card-actions">
+            <button
+              class="card-link document-trigger"
+              type="button"
+              data-title="Additional Professional Certificate"
+              data-type="frame"
+              data-src="https://drive.google.com/file/d/1QBr1qJOL2pzHiXLsr-1LhiiEllOQr22W/preview"
+              data-file="https://drive.google.com/file/d/1QBr1qJOL2pzHiXLsr-1LhiiEllOQr22W/view?usp=sharing"
+              data-protected="true"
+            >
+              View Certificate
+            </button>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -1277,6 +1310,14 @@
             >
               View Design
             </button>
+            <a
+              class="card-link card-link-ghost"
+              href="https://canva.link/m88l65vz6fjuqok"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Canva
+            </a>
           </div>
         </article>
 
@@ -1310,6 +1351,42 @@
             >
               View Design
             </button>
+            <a
+              class="card-link card-link-ghost"
+              href="https://canva.link/xb2grzhc8p38ox9"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Canva
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="project-card design-card"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          <div class="design-media design-placeholder" aria-hidden="true">
+            <i class="fas fa-palette"></i>
+            <span>Canva Portfolio</span>
+          </div>
+          <div class="card-meta">Canva Design Collection</div>
+          <h3>Supporting Visual Design</h3>
+          <p>
+            Additional Canva work prepared as part of internship visual
+            communication and portfolio documentation.
+          </p>
+          <div class="card-actions">
+            <a
+              class="card-link"
+              href="https://canva.link/giiihcdiri0nkhc"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Canva
+            </a>
           </div>
         </article>
       </div>
@@ -1406,6 +1483,52 @@
     </section>
 
     <div
+      id="access-modal"
+      class="modal access-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="access-title"
+    >
+      <div class="modal-content access-modal-content">
+        <button
+          class="close"
+          type="button"
+          aria-label="Close access request"
+          onclick="closeAccessModal()"
+        >
+          &times;
+        </button>
+        <div class="modal-header">
+          <p class="modal-kicker">Restricted Access</p>
+          <h3 id="access-title">Access Code Required</h3>
+          <p class="modal-description">
+            This file is part of a controlled portfolio archive. Enter the
+            access code provided by Korison to continue.
+          </p>
+        </div>
+        <form class="access-form" id="access-form">
+          <label for="access-code">Access code</label>
+          <div class="access-input-row">
+            <input
+              id="access-code"
+              type="password"
+              name="access-code"
+              autocomplete="off"
+              placeholder="Enter access code"
+              required
+            />
+            <button class="card-link" type="submit">Unlock</button>
+          </div>
+          <p class="access-feedback" id="access-feedback" role="status"></p>
+          <a class="access-request" href="mailto:korisonmangais04@gmail.com">
+            Request access by email
+          </a>
+        </form>
+      </div>
+    </div>
+
+    <div
       id="document-modal"
       class="modal document-modal"
       role="dialog"
@@ -1484,6 +1607,11 @@
       const documentOriginal = document.getElementById(
         "document-open-original",
       );
+      const accessForm = document.getElementById("access-form");
+      const accessCodeInput = document.getElementById("access-code");
+      const accessFeedback = document.getElementById("access-feedback");
+      const portfolioAccessCode = "KORISON2026";
+      let pendingDocumentTrigger = null;
 
       menuBtn.addEventListener("click", () => {
         const isActive = menuBtn.classList.toggle("active");
@@ -1565,8 +1693,52 @@
         closeModal("document-modal");
       }
 
+      function openAccessModal(trigger) {
+        pendingDocumentTrigger = trigger;
+        accessForm.reset();
+        accessFeedback.textContent = "";
+        accessFeedback.classList.remove("is-error", "is-success");
+        openModal("access-modal");
+        window.setTimeout(() => accessCodeInput.focus(), 120);
+      }
+
+      function closeAccessModal() {
+        pendingDocumentTrigger = null;
+        closeModal("access-modal");
+      }
+
       documentTriggers.forEach((trigger) => {
-        trigger.addEventListener("click", () => openDocumentViewer(trigger));
+        trigger.addEventListener("click", () => {
+          if (trigger.dataset.protected === "true") {
+            openAccessModal(trigger);
+            return;
+          }
+
+          openDocumentViewer(trigger);
+        });
+      });
+
+      accessForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const submittedCode = accessCodeInput.value.trim().toUpperCase();
+        if (submittedCode !== portfolioAccessCode) {
+          accessFeedback.textContent =
+            "The code is incorrect. Please check the code or request access by email.";
+          accessFeedback.classList.add("is-error");
+          accessFeedback.classList.remove("is-success");
+          return;
+        }
+
+        const trigger = pendingDocumentTrigger;
+        accessFeedback.textContent = "Access approved. Opening document...";
+        accessFeedback.classList.add("is-success");
+        accessFeedback.classList.remove("is-error");
+        closeModal("access-modal");
+
+        if (trigger) {
+          openDocumentViewer(trigger);
+        }
       });
 
       modals.forEach((modal) => {
@@ -1574,6 +1746,8 @@
           if (event.target === modal) {
             if (modal.id === "document-modal") {
               closeDocumentViewer();
+            } else if (modal.id === "access-modal") {
+              closeAccessModal();
             } else {
               closeModal(modal.id);
             }
@@ -1587,6 +1761,8 @@
             if (modal.classList.contains("is-visible")) {
               if (modal.id === "document-modal") {
                 closeDocumentViewer();
+              } else if (modal.id === "access-modal") {
+                closeAccessModal();
               } else {
                 closeModal(modal.id);
               }
