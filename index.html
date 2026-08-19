@@ -90,135 +90,104 @@
     </header>
 
     ```html
-<section class="main" id="home">
+<section class="main" id="main">
 
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-  >
-    <source
-      src="Image/159052-818026310_medium.mp4"
-      type="video/mp4"
-    />
-  </video>
-
-  <div class="hero-shell">
-
-    <!-- isi hero kamu tetap di sini -->
-
-    <div
-      class="animated-text"
-      data-aos="fade-left"
-      data-aos-duration="900"
-      data-aos-delay="300"
+    <!-- VIDEO SEBAGAI BACKGROUND -->
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
     >
-      <div>
-        <h3>Statistics</h3>
-        <h3>Data Analysis</h3>
-        <h3>Data Science</h3>
-        <h3>Machine Learning</h3>
-
-        <!-- duplikat untuk membuat animasi looping mulus -->
-        <h3 aria-hidden="true">Statistics</h3>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <section class="main" id="main">
-      <div class="hero-shell">
-        <p
-          class="eyebrow"
-          data-aos="fade-right"
-          data-aos-duration="900"
-          data-aos-delay="200"
+        <source
+            src="Image/159052-818026310_medium.mp4"
+            type="video/mp4"
         >
-          Lulusan S1 Statistika Universitas Tadulako
+    </video>
+
+    <!-- ISI HERO -->
+    <div class="hero-shell">
+
+        <p class="eyebrow">
+            Lulusan S1 Statistika Universitas Tadulako
         </p>
+
         <div class="content">
-          <h1
-            data-aos="fade-right"
-            data-aos-duration="1000"
-            data-aos-delay="350"
-          >
-            Halo, I&apos;m <span>Korison Hernando</span>
-          </h1>
-          <div
-            class="animated-text"
-            data-aos="fade-left"
-            data-aos-duration="900"
-            data-aos-delay="300"
-          >
-            <div>
-              <h3>Statistics</h3>
-              <h3>Data Analys</h3>
-              <h3>Data Science</h3>
-              <h3>Machine Learning</h3>
+
+            <h1>
+                Halo, I'm
+                <span>Korison Hernando</span>
+            </h1>
+
+            <div class="animated-text">
+                <div>
+                    <h3>Statistics</h3>
+                    <h3>Data Analysis</h3>
+                    <h3>Data Science</h3>
+                    <h3>Machine Learning</h3>
+                    <h3 aria-hidden="true">Statistics</h3>
+                </div>
             </div>
-          </div>
-          <div
-            class="hero-actions"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="650"
-          >
-            <a href="#experience" class="btn">Lihat Pengalaman</a>
-            <button
-              class="btn btn-light document-trigger"
-              type="button"
-              data-title="Korison Hernando - CV Digital"
-              data-type="frame"
-              data-src="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/preview"
-              data-file="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/view?usp=sharing"
-            >
-              CV Digital
-            </button>
-          </div>
-          <div
-            class="media-icons"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="800"
-          >
-            <a
-              href="https://www.linkedin.com/in/korisonmangais"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Profil LinkedIn"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
 
-            <a
-              href="https://github.com/korison230603"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Profil GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
+            <!-- PAKAI ISI TOMBOL DARI HERO ASLI KAMU -->
+            <div class="hero-actions">
 
-            <a href="mailto:korisonmangais04@gmail.com" aria-label="Kirim email">
-              <i class="fas fa-envelope"></i>
-            </a>
+                <a href="#experience" class="btn">
+                    Lihat Pengalaman
+                </a>
 
-            <a
-              href="https://www.instagram.com/krson._?igsh=MXh4ODVjemMzOW03Mw%3D%3D&utm_source=qr"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Profil Instagram"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
+                <button
+                    class="btn btn-light document-trigger"
+                    type="button"
+                    data-title="Korison Hernando - CV Digital"
+                    data-type="frame"
+                    data-src="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/preview"
+                    data-file="https://drive.google.com/file/d/1iHx8gm0VQQONFE1aPsnOITdWlw7pBthB/view?usp=sharing"
+                >
+                    CV Digital
+                </button>
+
+            </div>
+
+            <!-- SOSIAL MEDIA DARI HERO ASLI -->
+            <div class="media-icons">
+
+                <a
+                    href="https://www.linkedin.com/in/korisonmangais"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a
+                    href="https://github.com/korison230603"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a
+                    href="mailto:korisonmangais04@gmail.com"
+                >
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/krson._?igsh=MXh4ODVjemMzOW03Mw%3D%3D&utm_source=qr"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
     <section class="about" id="about">
       <div class="title reveal">
