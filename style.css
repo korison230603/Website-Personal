@@ -314,6 +314,8 @@ header.sticky {
 
 .main h1 span {
   color: var(--accent-soft);
+  display: block;
+  margin-top: 6px;
 }
 
 .animated-text {
@@ -662,6 +664,56 @@ header.sticky {
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.7;
+}
+
+/* PENDIDIKAN */
+
+.education {
+    background:
+        linear-gradient(
+            135deg,
+            #eef7fc 0%,
+            #e4f1f8 50%,
+            #f3f8fb 100%
+        );
+}
+
+.education .content {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.education .about-visual {
+    order: 1;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.education .about-copy {
+    order: 2;
+    width: 100%;
+}
+
+
+@media (max-width: 800px) {
+
+    .education .content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .education .about-visual {
+        order: 1;
+        max-width: 600px;
+    }
+
+    .education .about-copy {
+        order: 2;
+    }
+
 }
 
 .experience {
